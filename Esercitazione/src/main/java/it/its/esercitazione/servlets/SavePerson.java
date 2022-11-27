@@ -17,6 +17,7 @@ import org.json.JSONObject;
 
 import it.its.esercitazione.domain.Person;
 import it.its.esercitazione.idao.DAOFactoryMethod;
+import it.its.esercitazione.utils.Util;
 
 
 /**
@@ -35,7 +36,7 @@ public class SavePerson extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		  JSONObject jObj = new JSONObject(getBody(request));
+		  JSONObject jObj = new JSONObject(Util.getBody(request));
 		  
 		  Iterator<String> it = jObj.keys();
 		  Map<String,String> mappa = new HashMap<String, String>();
@@ -51,60 +52,6 @@ public class SavePerson extends HttpServlet {
 		  
 		DAOFactoryMethod.getInstance().getPersonDAO().save(person);
 	}
-		
-	public static String getBody(HttpServletRequest request)  {
 
-	    String body = null;
-	    StringBuilder stringBuilder = new StringBuilder();
-	    BufferedReader bufferedReader = null;
-
-	    try {
-	        InputStream inputStream = request.getInputStream();
-	        if (inputStream != null) {
-	            bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-	            char[] charBuffer = new char[128];
-	            int bytesRead = -1;
-	            while ((bytesRead = bufferedReader.read(charBuffer)) > 0) {
-	                stringBuilder.append(charBuffer, 0, bytesRead);
-	            }
-	        } else {
-	            stringBuilder.append("");
-	        }
-	    } catch (IOException ex) {
-	        // throw ex;
-	        return "";
-	    } finally {
-	        if (bufferedReader != null) {
-	            try {
-	                bufferedReader.close();
-	            } catch (IOException ex) {
-
-	            }
-	        }
-	    }
-
-	    body = stringBuilder.toString();
-	    return body;
-	}	
-		
-		
-		
-		
-//	
-//	public Person execute(HttpServletRequest request, HttpServletResponse response) {
-//		
-//		try {
-//			person.setName(request.getParameter("name"));
-//			person.setSurname(request.getParameter("surname"));		
-//			DAOFactoryMethod.getInstance().getPersonDAO().save(person);
-//			RequestDispatcher rd;
-//			rd = request.getRequestDispatcher("result.jsp");
-//			rd.forward(request, response);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return person; 
-//		
-//	}
 
 }
