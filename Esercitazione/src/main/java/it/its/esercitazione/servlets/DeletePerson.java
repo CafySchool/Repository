@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.its.esercitazione.idao.DAOFactoryMethod;
+import it.its.esercitazione.utils.Util;
 
 
 
@@ -31,8 +32,7 @@ public class DeletePerson extends HttpServlet {
     	} else {
     		System.out.println("errore");
     	}
-		response.setContentType("text/plain");
-		response.getWriter().println("Person id deleted: " + id);
+    	Util.renderDelete(id, response);
 		
     	
     	

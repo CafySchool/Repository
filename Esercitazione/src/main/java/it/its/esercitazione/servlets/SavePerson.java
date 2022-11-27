@@ -51,12 +51,10 @@ public class SavePerson extends HttpServlet {
 		  person.setSurname(mappa.get("surname"));
 		  
 		DAOFactoryMethod.getInstance().getPersonDAO().save(person);
-		response.setContentType("text/plain");
-		response.getWriter().println("New Person");
-		response.getWriter().println("Person id: " + person.getId());
-		response.getWriter().println("Name: " + person.getName());
-		response.getWriter().println("Surname: " + person.getSurname());
+		Util.render(person, response, "New Person");
+
 	}
+
 
 
 }

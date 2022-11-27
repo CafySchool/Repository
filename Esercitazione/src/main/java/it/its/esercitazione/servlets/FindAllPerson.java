@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.its.esercitazione.domain.Person;
 import it.its.esercitazione.idao.DAOFactoryMethod;
+import it.its.esercitazione.utils.Util;
 
 
 
@@ -28,11 +29,9 @@ public class FindAllPerson extends HttpServlet {
     
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {	
     		ArrayList<Person> list =DAOFactoryMethod.getInstance().getPersonDAO().findAll();
-    		response.setContentType("text/plain");
     		for(Person person : list) {
-    			response.getWriter().println("Person id: " + person.getId());
-    			response.getWriter().println("Name: " + person.getName());
-    			response.getWriter().println("Surname: " + person.getSurname());
+    			String personNumber = Integer.toString(list.indexOf(person)+1);
+    			Util.render(person, response, "Person" + personNumber);
     		}
     }
     

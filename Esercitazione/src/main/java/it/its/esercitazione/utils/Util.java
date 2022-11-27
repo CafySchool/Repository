@@ -6,6 +6,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import it.its.esercitazione.domain.Person;
 
 public class Util {
 	public static String getBody(HttpServletRequest request)  {
@@ -42,4 +45,15 @@ public class Util {
 	    body = stringBuilder.toString();
 	    return body;
 	}	
+	public static void render(Person person, HttpServletResponse response, String message) throws IOException {
+		response.setContentType("text/plain");
+		response.getWriter().println(message);
+		response.getWriter().println("Person id: " + person.getId());
+		response.getWriter().println("Name: " + person.getName());
+		response.getWriter().println("Surname: " + person.getSurname());
+	}
+	public static void renderDelete(String id, HttpServletResponse response) throws IOException {
+		response.setContentType("text/plain");
+		response.getWriter().println("Person id deleted: " + id);
+	}
 }

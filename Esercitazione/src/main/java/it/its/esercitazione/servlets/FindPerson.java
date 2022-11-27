@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.its.esercitazione.domain.Person;
 import it.its.esercitazione.idao.DAOFactoryMethod;
+import it.its.esercitazione.utils.Util;
 
 
 
@@ -28,9 +29,6 @@ public class FindPerson extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {	
     		String id = request.getParameter("id");
     		Person person =DAOFactoryMethod.getInstance().getPersonDAO().findById(id);
-    		response.setContentType("text/plain");
-    		response.getWriter().println("Person id: " + person.getId());
-    		response.getWriter().println("Name: " + person.getName());
-    		response.getWriter().println("Surname: " + person.getSurname());
+    		Util.render(person, response, "Found Person");
     }
 }
