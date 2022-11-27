@@ -1,22 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-  <display-name>Esercitazione</display-name>
-  <welcome-file-list>
+  <!-- <display-name>Esercitazione</display-name> -->
+<!--   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
-  </welcome-file-list>
+  </welcome-file-list> -->
   <servlet>
     <description></description>
-    <display-name>PersonServlet</display-name>
-    <servlet-name>PersonServlet</servlet-name>
-    <servlet-class>it.its.esercitazione.servlets.PersonServlet</servlet-class>
+    <display-name>SavePerson</display-name>
+    <servlet-name>SavePerson</servlet-name>
+    <servlet-class>it.its.esercitazione.servlets.SavePerson</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>PersonServlet</servlet-name>
-    <url-pattern>/PersonServlet</url-pattern>
+    <servlet-name>SavePerson</servlet-name>
+    <url-pattern>/SavePerson</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>DeletePerson</display-name>
+    <servlet-name>DeletePerson</servlet-name>
+    <servlet-class>it.its.esercitazione.servlets.DeletePerson</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeletePerson</servlet-name>
+    <url-pattern>/DeletePerson</url-pattern>
+  </servlet-mapping>
+      <servlet>
+    <description></description>
+    <display-name>FindAllPerson</display-name>
+    <servlet-name>FindAllPerson</servlet-name>
+    <servlet-class>it.its.esercitazione.servlets.FindAllPerson</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FindAllPerson</servlet-name>
+    <url-pattern>/FindAllPerson</url-pattern>
+  </servlet-mapping>
+        <servlet>
+    <description></description>
+    <display-name>FindPerson</display-name>
+    <servlet-name>FindPerson</servlet-name>
+    <servlet-class>it.its.esercitazione.servlets.FindPerson</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FindPerson</servlet-name>
+    <url-pattern>/FindPerson</url-pattern>
+  </servlet-mapping>
+          <servlet>
+    <description></description>
+    <display-name>UpdatePerson</display-name>
+    <servlet-name>UpdatePerson</servlet-name>
+    <servlet-class>it.its.esercitazione.servlets.UpdatePerson</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdatePerson</servlet-name>
+    <url-pattern>/UpdatePerson</url-pattern>
   </servlet-mapping>
 </web-app>

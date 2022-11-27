@@ -1,25 +1,30 @@
 package it.its.esercitazione.domain;
 
+import java.util.UUID;
+
 public class Person {
-	private int id;
+	private String id = UUID.randomUUID().toString();
 	private String name;
 	private String surname;
-	public Person(int id, String name, String surname) {
+	public Person(String name, String surname) {
 		super();
-		this.id = id;
+		
 		this.name = name;
 		this.surname = surname;
 	}
 	
 	public Person() {
 	}
+	
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(String id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
