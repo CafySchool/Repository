@@ -57,6 +57,12 @@ public class UpdatePerson extends HttpServlet {
 		  person.setName(mappa.get("name"));
 		  person.setSurname(mappa.get("surname"));
 		DAOFactoryMethod.getInstance().getPersonDAO().save(person);
+		response.setContentType("text/plain");
+		response.getWriter().println("Updated Person");
+		response.getWriter().println("Person id: " + person.getId());
+		response.getWriter().println("Name: " + person.getName());
+		response.getWriter().println("Surname: " + person.getSurname());
+	
 	}	
 
 }
